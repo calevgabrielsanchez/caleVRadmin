@@ -1,0 +1,28 @@
+<div class="barra-herramientas">
+    <div class="grupo-izquierdo">
+        <button (click)="convertirPergamino()"><fa-icon size="2x" [icon]="faScroll"></fa-icon></button>
+        <button (click)="convertirCodigo()"><fa-icon size="2x" [icon]="faCode"></fa-icon></button>
+    </div>
+    <div class="grupo-centro">
+        <button (click)="guardarYAceptar()"><fa-icon size="2x" [icon]="faSquareCheck"></fa-icon></button>
+    </div>
+    <div class="grupo-derecho">
+        <button (click)="onHelp()"><fa-icon size="2x" [icon]="faCircleQuestion"></fa-icon></button>
+    </div>
+    <div class="grupo-derecho">
+        <button (click)="cerrar.emit()"><fa-icon size="2x" [icon]="faSquareXmark"></fa-icon></button>
+    </div>
+</div>
+<textarea 
+  class="cuadro-completo" 
+  [class.hide]="code"
+  placeholder="Escribe aquí..."
+  [(ngModel)]="textoArea"
+  (ngModelChange)="actualizarVistaPergamino()">
+</textarea>
+
+<div 
+  contenteditable="false" 
+  class="cuadro-completo pergamino"
+  [class.hide]="!code" [innerHTML]="vistaPergamino">
+</div>

@@ -1,0 +1,34 @@
+<section class="hoja5-panel" aria-label="Hoja 5">
+  <label class="hoja5-select-wrap">
+    <span class="visually-hidden">Seleccionar lista</span>
+    <select [value]="selectedOption()" (change)="selectOption($event)">
+      @for (option of options; track option) {
+        <option [value]="option">{{ option }}</option>
+      }
+    </select>
+    <fa-icon [icon]="faChevronDown" class="hoja5-chevron" aria-hidden="true"></fa-icon>
+  </label>
+
+  <div class="hoja5-table-wrap">
+    <table>
+      <thead>
+        <tr>
+          @for (header of headers[selectedOption()]; track header) {
+            <th>{{ header }}</th>
+          }
+        </tr>
+      </thead>
+      <tbody>
+        @for (row of rows[selectedOption()]; track $index) {
+          <tr>
+            <td>{{ row.head1 }}</td>
+            <td>{{ row.head2 }}</td>
+            <td>{{ row.head3 }}</td>
+            <td>{{ row.head4 }}</td>
+            <td>{{ row.head5 }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</section>

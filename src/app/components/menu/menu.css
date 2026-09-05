@@ -1,0 +1,88 @@
+:host {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.menu-container {
+  width: 100%;
+  min-width: 0;
+  padding: 12px;
+  box-sizing: border-box;
+  color: var(--text-color, #62c0f4);
+  background-color: var(--bg-app, #2c2c31);
+}
+
+.menu-sections {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  overflow-x: auto;
+  padding: 4px;
+  scrollbar-width: thin;
+}
+
+.menu-section {
+  position: relative;
+  flex: 0 0 64px;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  color: var(--text-color, #62c0f4);
+  background-color: var(--bg-header, #37373e);
+  border: 2px solid var(--border-color, #00558a);
+  border-radius: 6px;
+  font: inherit;
+  font-size: 0;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.menu-section:hover,
+.menu-section:focus-visible {
+  background-color: rgba(0, 85, 138, 0.35);
+  border-color: var(--text-color, #62c0f4);
+  outline: none;
+  transform: translateY(-2px);
+}
+
+.menu-section-selected {
+  color: var(--selected-color, #44e233);
+  border-color: var(--selected-color, #44e233);
+}
+
+.menu-section-icon {
+  color: var(--fontawesome-color, #cb00b0);
+  font-size: 1.25rem;
+}
+
+.menu-tooltip {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  padding: 5px 8px;
+  color: var(--bg-app, #2c2c31);
+  background-color: var(--text-color, #62c0f4);
+  border-radius: 4px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.96);
+  transition: opacity 0.15s, transform 0.15s;
+}
+
+.menu-section:hover .menu-tooltip,
+.menu-section:focus-visible .menu-tooltip,
+.menu-section-tooltip-visible .menu-tooltip {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}

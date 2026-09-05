@@ -1,0 +1,41 @@
+<div class="app-viewport">
+  <div class="app-container">
+    <!-- Cabecera de la aplicaciA3n -->
+    <header class="app-header">
+      <button class="header-section menu-button" (click)="toggleMenu()" aria-label="Abrir menA-">
+        <fa-icon [icon]="faBars" class="fa-icon"></fa-icon>
+      </button>
+
+      <div class="header-section title-section">
+        <span class="app-title">CaleVRadmin</span>
+      </div>
+
+      <button class="header-section profile-button" (click)="cycleProfile()" [attr.aria-label]="getProfileLabel()">
+        <fa-icon [icon]="profileIcon" class="fa-icon"></fa-icon>
+      </button>
+    </header>
+
+    <!-- A-rea principal de contenido -->
+    <main class="app-content">
+      <app-menu
+        [class.menu-hidden]="!isMenuOpen"
+        (sectionSelected)="onSectionSelected($event)"></app-menu>
+      @if (activeSection() === 'Hoja 5') {
+        <app-hoja5></app-hoja5>
+      }
+    </main>
+
+    <!-- Barra de estado inferior -->
+    <footer class="app-footer">
+      @if (selectedPath) {
+        <span class="app-footer-path">{{ selectedPath }}</span>
+      } @else {
+        <span class="app-footer-hint">Toca el menA- y abre una carpeta.</span>
+      }
+    </footer>
+  </div>
+
+  @if (mediaEntry(); as entry) {
+    <app-reproductor [entry]="entry" (close)="onCloseMedia()" (renamed)="onMediaRenamed($event)"></app-reproductor>
+  }
+</div>

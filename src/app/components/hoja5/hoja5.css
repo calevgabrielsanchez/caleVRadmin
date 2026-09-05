@@ -1,0 +1,85 @@
+:host {
+  display: block;
+  min-width: 0;
+  flex: 1;
+}
+
+.hoja5-panel {
+  height: 100%;
+  padding: 12px;
+  box-sizing: border-box;
+  color: var(--text-color, #62c0f4);
+  background: var(--bg-app, #2c2c31);
+}
+
+.hoja5-select-wrap {
+  position: relative;
+  display: block;
+  height: 54px;
+  border: 2px solid var(--border-color, #00558a);
+  background: var(--bg-header, #37373e);
+}
+
+select {
+  width: 100%;
+  height: 100%;
+  padding: 0 42px 0 12px;
+  appearance: none;
+  -webkit-appearance: none;
+  color: var(--text-color, #62c0f4);
+  background: var(--bg-header, #37373e);
+  border: 0;
+  font: inherit;
+  font-size: 1.05rem;
+}
+
+.hoja5-chevron {
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  color: var(--fontawesome-color, #cb00b0);
+  font-size: 1.7rem;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+select:focus {
+  outline: 2px solid var(--selected-color, #44e233);
+  outline-offset: -2px;
+}
+
+.hoja5-table-wrap {
+  margin-top: 14px;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  min-width: 420px;
+  border-collapse: collapse;
+  color: var(--text-color, #62c0f4);
+  background: var(--bg-header, #37373e);
+  font-size: 0.78rem;
+}
+
+th,
+td {
+  padding: 10px 8px;
+  border: 1px solid var(--border-color, #00558a);
+  text-align: left;
+}
+
+th {
+  color: var(--fontawesome-color, #cb00b0);
+  font-weight: 700;
+  text-align: center;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
