@@ -1,0 +1,22 @@
+<section class="agenda-panel" aria-label="Agenda">
+  <div class="agenda-toolbar">
+    <label class="agenda-filter"><select [value]="filter()" (change)="setFilter($event)">@for (option of filters; track option) { <option>{{ option }}</option> }</select><fa-icon [icon]="faChevronDown"></fa-icon></label>
+    <label class="agenda-date-wrap"><span class="agenda-date-label">{{ referenceDate() }}</span><input #agendaDate class="agenda-date" type="date" [value]="referenceDate()" (change)="setDate($event)" aria-label="Fecha de referencia" /><fa-icon [icon]="faCalendarDays" class="agenda-date-icon" (click)="openDatePicker()"></fa-icon></label>
+    <button class="agenda-action" type="button" title="Agregar evento" (click)="openForm()"><fa-icon [icon]="faPlus"></fa-icon></button>
+    <button class="agenda-action" type="button" title="Preparar Google Calendar" (click)="prepareGoogleSync()"><fa-icon [icon]="faCalendarDays"></fa-icon></button>
+  </div>
+
+  @if (isAdding()) {
+    <form class="agenda-form" (submit)="$event.preventDefault(); save()">
+      <input type="text" [value]="title()" (input)="title.set($any($event.target).value)" placeholder="Título" aria-label="Título" />
+      <textarea [value]="description()" (input)="description.set($any($event.target).value)" placeholder="Descripción" aria-label="Descripción"></textarea>
+      <div><button type="submit">{{ editingId() ? 'Guardar' : 'Agregar' }}</button><button type="button" (click)="cancel()">Cancelar</button></div>
+    </form>
+  }
+
+  <div class="agenda-list">
+    @for (event of visibleEvents(); track event.id) {
+      <article class="agenda-event"><div><strong>{{ event.title }}</strong><small>{{ event.date }}</small><p>{{ event.description }}</p></div><div><button class="agenda-icon" (click)="edit(event)" title="Editar"><fa-icon [icon]="faPen"></fa-icon></button><button class="agenda-icon delete" (click)="remove(event.id)" title="Eliminar"><fa-icon [icon]="faTrash"></fa-icon></button></div></article>
+    } @empty { <p class="agenda-empty">No hay eventos para este periodo.</p> }
+  </div>
+</section>

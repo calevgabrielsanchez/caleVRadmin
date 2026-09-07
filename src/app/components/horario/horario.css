@@ -1,0 +1,13 @@
+:host { display:block; min-width:0; flex:1; }
+.horario-panel { height:100%; overflow:auto; padding:12px; box-sizing:border-box; background:var(--bg-app,#2c2c31); }
+.horario-table { width:100%; min-width:300px; table-layout:fixed; border-collapse:collapse; color:var(--text-color,#62c0f4); background:var(--bg-header,#37373e); font-family:'Ubuntu',sans-serif; }
+.horario-table th,.horario-table td { border:2px solid var(--border-color,#00558a); }
+.horario-col-time { width:22.5%; }
+.horario-col-activity { width:55%; }
+.horario-table th { height:32px; color:var(--fontawesome-color,#cb00b0); font-size:1.1em; font-weight:700; }
+.horario-table td { height:28px; padding:0 5px; font-size:1.1em; }
+.horario-table th:nth-child(1),.horario-table th:nth-child(2),.horario-table td:nth-child(1),.horario-table td:nth-child(2) { width:22.5%; text-align:center; }
+.horario-table th:last-child { width:55%; padding:0 8px; color:var(--fontawesome-color,#cb00b0); font-size:1.1em; text-align:center; }
+.horario-table td:last-child { width:55%; padding:0 8px; color:var(--text-color,#62c0f4); font-size:1.1em; text-align:center; }
+.horario-activity { width:100%; height:100%; min-height:100px; color:inherit; background:transparent; border:0; font:inherit; cursor:pointer; }
+.horario-activity:hover,.horario-activity:focus-visible { color:var(--selected-color,#44e233); outline:1px solid var(--selected-color,#44e233); }

@@ -12,3 +12,31 @@ body {
   margin: 0;
   font-family: 'Ubuntu', sans-serif;
 }
+
+select {
+  box-sizing: border-box;
+  appearance: none;
+  -webkit-appearance: none;
+  color: var(--text-color, #62c0f4);
+  background-color: var(--bg-header, #37373e);
+  border: 2px solid var(--border-color, #00558a);
+  font: inherit;
+}
+
+select:focus-visible {
+  outline: 2px solid var(--selected-color, #44e233);
+  outline-offset: -2px;
+}
+
+input:focus-visible,
+textarea:focus-visible {
+  color: var(--selected-color, #44e233) !important;
+  border-color: var(--selected-color, #44e233) !important;
+  outline: 2px solid var(--selected-color, #44e233);
+  outline-offset: -1px;
+}
+
+select option {
+  color: var(--text-color, #62c0f4);
+  background-color: var(--bg-header, #37373e);
+}

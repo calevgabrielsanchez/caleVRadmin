@@ -1,0 +1,48 @@
+<section class="horario-panel" aria-label="Horario">
+  <table class="horario-table">
+    <colgroup>
+      <col class="horario-col-time" />
+      <col class="horario-col-time" />
+      <col class="horario-col-activity" />
+    </colgroup>
+    <thead><tr><th colspan="2">Horario</th><th>Actividad</th></tr></thead>
+    <tbody>
+      <tr><td>5:00</td><td>5:30</td><td rowspan="2"><button class="horario-activity" (click)="openActivity('sapo')">Sapo</button></td></tr>
+      <tr><td>5:30</td><td>6:00</td></tr>
+      <tr><td>6:00</td><td>6:30</td><td rowspan="4"><button class="horario-activity" (click)="openActivity('transporte-manana')">Transporte</button></td></tr>
+      <tr><td>6:30</td><td>7:00</td></tr>
+      <tr><td>7:00</td><td>7:30</td></tr>
+      <tr><td>7:30</td><td>8:00</td></tr>
+      <tr><td>8:00</td><td>8:30</td><td rowspan="10"><button class="horario-activity" (click)="openActivity('trabajo-manana')">Trabajo</button></td></tr>
+      <tr><td>8:30</td><td>9:00</td></tr>
+      <tr><td>9:00</td><td>9:30</td></tr>
+      <tr><td>9:30</td><td>10:00</td></tr>
+      <tr><td>10:00</td><td>10:30</td></tr>
+      <tr><td>10:30</td><td>11:00</td></tr>
+      <tr><td>11:00</td><td>11:30</td></tr>
+      <tr><td>11:30</td><td>12:00</td></tr>
+      <tr><td>12:00</td><td>12:30</td></tr>
+      <tr><td>12:30</td><td>13:00</td></tr>
+      <tr><td>13:00</td><td>13:30</td><td rowspan="4"><button class="horario-activity" (click)="openActivity('comida')">Comida</button></td></tr>
+      <tr><td>13:30</td><td>14:00</td></tr>
+      <tr><td>14:00</td><td>14:30</td></tr>
+      <tr><td>14:30</td><td>15:00</td></tr>
+      <tr><td>15:00</td><td>15:30</td><td rowspan="6"><button class="horario-activity" (click)="openActivity('trabajo-tarde')">Trabajo</button></td></tr>
+      <tr><td>15:30</td><td>16:00</td></tr>
+      <tr><td>16:00</td><td>16:30</td></tr>
+      <tr><td>16:30</td><td>17:00</td></tr>
+      <tr><td>17:00</td><td>17:30</td></tr>
+      <tr><td>17:30</td><td>18:00</td></tr>
+      <tr><td>18:00</td><td>18:30</td><td rowspan="4"><button class="horario-activity" (click)="openActivity('transporte-tarde')">Transporte</button></td></tr>
+      <tr><td>18:30</td><td>19:00</td></tr>
+      <tr><td>19:00</td><td>19:30</td></tr>
+      <tr><td>19:30</td><td>20:00</td></tr>
+      <tr><td>20:00</td><td>20:30</td><td rowspan="2"><button class="horario-activity" (click)="openActivity('descanso')">Descanso</button></td></tr>
+      <tr><td>20:30</td><td>21:00</td></tr>
+    </tbody>
+  </table>
+</section>
+
+@if (activeActivity()) {
+  <app-text-plus [(textoContenido)]="textPlusValue" (aceptar)="saveActivity()" (cerrar)="activeActivity.set(null)"></app-text-plus>
+}

@@ -1,0 +1,48 @@
+<section class="sanacion-panel" aria-label="Sanación">
+  <div class="sanacion-toolbar">
+    <label class="sanacion-select-wrap">
+      <select [value]="selectedTitle()" (change)="selectItem($event)" aria-label="Seleccionar elemento">
+        @for (item of items(); track item.title) {
+          <option [value]="item.title">{{ item.title }}</option>
+        }
+      </select>
+      <fa-icon [icon]="faChevronDown" class="sanacion-chevron" aria-hidden="true"></fa-icon>
+    </label>
+    <button class="sanacion-add" type="button" title="Agregar elemento" aria-label="Agregar elemento" (click)="openForm()">
+      <fa-icon [icon]="faPlus"></fa-icon>
+    </button>
+    <button class="sanacion-action" type="button" title="Editar elemento" aria-label="Editar elemento" (click)="editItem()">
+      <fa-icon [icon]="faPen"></fa-icon>
+    </button>
+    <button class="sanacion-action sanacion-delete" type="button" title="Eliminar elemento" aria-label="Eliminar elemento" (click)="deleteItem()">
+      <fa-icon [icon]="faTrash"></fa-icon>
+    </button>
+  </div>
+
+  @if (isAdding()) {
+    <form class="sanacion-form" (submit)="$event.preventDefault(); addItem()">
+      <input [value]="newTitle()" (input)="newTitle.set($any($event.target).value)" placeholder="Título" aria-label="Título" />
+      <textarea [value]="newDescription()" (input)="newDescription.set($any($event.target).value)" placeholder="Descripción" aria-label="Descripción"></textarea>
+      <div class="sanacion-form-actions">
+        <button type="submit">{{ editingTitle() ? 'Guardar' : 'Agregar' }}</button>
+        <button type="button" (click)="cancelForm()">Cancelar</button>
+      </div>
+    </form>
+  }
+
+  @if (selectedItem(); as item) {
+    <p class="sanacion-description">{{ item.description }}</p>
+    <div class="sanacion-work-row">
+      <button class="sanacion-work" type="button" (click)="workOnSelected()">Trabajar</button>
+    </div>
+  } @else {
+    <p class="sanacion-empty">Agrega un elemento para comenzar.</p>
+  }
+</section>
+
+@if (activeTextPlus()) {
+  <app-text-plus
+    [(textoContenido)]="textPlusValue"
+    (aceptar)="saveTextPlus()"
+    (cerrar)="activeTextPlus.set(null)"></app-text-plus>
+}

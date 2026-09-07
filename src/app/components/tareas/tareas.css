@@ -1,0 +1,185 @@
+:host {
+  display: block;
+  min-width: 0;
+  flex: 1;
+}
+
+.tareas-panel {
+  height: 100%;
+  padding: 12px;
+  box-sizing: border-box;
+  color: var(--text-color, #62c0f4);
+  background: var(--bg-app, #2c2c31);
+}
+
+.tareas-toolbar {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.tareas-select-wrap {
+  position: relative;
+  display: block;
+  flex: 1;
+  height: 54px;
+  border: 2px solid var(--border-color, #00558a);
+  background: var(--bg-header, #37373e);
+}
+
+.tareas-select-wrap select {
+  width: 100%;
+  height: 100%;
+  padding: 0 42px 0 12px;
+  appearance: none;
+  -webkit-appearance: none;
+  color: var(--text-color, #62c0f4);
+  background: var(--bg-header, #37373e);
+  border: 0;
+  font: inherit;
+  font-size: 1.05rem;
+}
+
+.tareas-chevron {
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  color: var(--fontawesome-color, #cb00b0);
+  font-size: 1.7rem;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.tareas-edit {
+  width: 54px;
+  flex: 0 0 54px;
+  color: var(--fontawesome-color, #cb00b0);
+  background: var(--bg-header, #37373e);
+  border: 2px solid var(--border-color, #00558a);
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.tareas-edit:hover,
+.tareas-edit:focus-visible {
+  border-color: var(--text-color, #62c0f4);
+  outline: none;
+}
+
+.tareas-add {
+  width: 54px;
+  flex: 0 0 54px;
+  color: var(--fontawesome-color, #cb00b0);
+  background: var(--bg-header, #37373e);
+  border: 2px solid var(--border-color, #00558a);
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.tareas-add:hover,
+.tareas-add:focus-visible {
+  border-color: var(--text-color, #62c0f4);
+  outline: none;
+}
+
+.tareas-add-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+  padding: 10px;
+  color: var(--text-color, #62c0f4);
+  background: var(--bg-header, #37373e);
+  border: 2px solid var(--border-color, #00558a);
+}
+
+.tareas-add-form label {
+  display: flex;
+  flex: 1 1 130px;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.75rem;
+}
+
+.tareas-add-form select,
+.tareas-add-form input {
+  min-height: 34px;
+  padding: 4px 6px;
+}
+
+.tareas-add-actions {
+  display: flex;
+  align-items: end;
+  gap: 6px;
+}
+
+.tareas-add-actions button {
+  min-height: 34px;
+  padding: 4px 10px;
+  color: var(--text-color, #62c0f4);
+  background: var(--bg-app, #2c2c31);
+  border: 1px solid var(--border-color, #00558a);
+  font: inherit;
+}
+
+.tareas-table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  min-width: 420px;
+  border-collapse: collapse;
+  color: var(--text-color, #62c0f4);
+  background: var(--bg-header, #37373e);
+  font-size: 0.78rem;
+}
+
+th,
+td {
+  padding: 10px 8px;
+  border: 1px solid var(--border-color, #00558a);
+  text-align: left;
+  vertical-align: middle;
+}
+
+th {
+  color: var(--fontawesome-color, #cb00b0);
+  font-weight: 700;
+  text-align: center;
+}
+
+input {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  color: inherit;
+  background: transparent;
+  border: 1px solid var(--text-color, #62c0f4);
+  font: inherit;
+}
+
+.task-item {
+  width: 100%;
+  min-height: 28px;
+  padding: 4px;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  font: inherit;
+  text-align: left;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+
+.task-item:hover,
+.task-item:focus-visible {
+  color: var(--selected-color, #44e233);
+  outline: 1px solid var(--selected-color, #44e233);
+}
+
+.task-item-edit { display:flex; align-items:center; gap:4px; margin:3px 0; }
+.task-item-edit input { flex:1; min-width:0; }
+.task-item-edit button { width:28px; height:28px; color:#e5534b; background:transparent; border:1px solid #e5534b; cursor:pointer; }

@@ -20,6 +20,32 @@
   background: var(--bg-header, #37373e);
 }
 
+.hoja5-toolbar {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+}
+
+.hoja5-toolbar .hoja5-select-wrap {
+  flex: 1;
+}
+
+.hoja5-edit-button {
+  width: 54px;
+  flex: 0 0 54px;
+  color: var(--fontawesome-color, #cb00b0);
+  background: var(--bg-header, #37373e);
+  border: 2px solid var(--border-color, #00558a);
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.hoja5-edit-button:hover,
+.hoja5-edit-button:focus-visible {
+  border-color: var(--text-color, #62c0f4);
+  outline: none;
+}
+
 select {
   width: 100%;
   height: 100%;
@@ -53,6 +79,15 @@ select:focus {
   overflow-x: auto;
 }
 
+.hoja5-table-wrap.hoja5-editing {
+  outline: 2px solid var(--selected-color, #44e233);
+  outline-offset: 2px;
+}
+
+.hoja5-table-wrap.hoja5-editing table {
+  border-color: var(--selected-color, #44e233);
+}
+
 table {
   width: 100%;
   min-width: 420px;
@@ -73,6 +108,44 @@ th {
   color: var(--fontawesome-color, #cb00b0);
   font-weight: 700;
   text-align: center;
+}
+
+th input,
+td input {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  color: inherit;
+  background: transparent;
+  border: 1px solid var(--text-color, #62c0f4);
+  font: inherit;
+}
+
+.hoja5-table-wrap input:focus-visible {
+  color: var(--selected-color, #44e233);
+  border-color: var(--selected-color, #44e233);
+  outline: 2px solid var(--selected-color, #44e233);
+  outline-offset: -1px;
+}
+
+.hoja5-cell-button {
+  width: 100%;
+  min-height: 28px;
+  padding: 4px;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  font: inherit;
+  text-align: left;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+
+.hoja5-cell-button:hover,
+.hoja5-cell-button:focus-visible {
+  color: var(--selected-color, #44e233);
+  outline: 1px solid var(--selected-color, #44e233);
 }
 
 .visually-hidden {

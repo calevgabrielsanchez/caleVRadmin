@@ -1,0 +1,48 @@
+<section class="diario-panel" aria-label="Diario">
+  <div class="diario-current">
+    <button class="diario-date diario-date-button" type="button" (click)="openTextPlus('current-' + currentDate())">
+      {{ currentDate() }}
+    </button>
+    <button class="diario-mood diario-calendar" type="button" title="Seleccionar fecha" aria-label="Seleccionar fecha" (click)="openDatePicker()">
+      <fa-icon [icon]="faCalendarDays"></fa-icon>
+    </button>
+    <button class="diario-mood" type="button" title="Agregar fecha" aria-label="Agregar fecha" (click)="addCurrentDate()">
+      <fa-icon [icon]="faPlus"></fa-icon>
+    </button>
+    <input #datePicker class="diario-date-picker" type="date" (change)="updateDate($event)" aria-label="Seleccionar fecha" />
+  </div>
+
+  <div class="diario-saved-list">
+    @for (entry of savedEntries(); track entry.id) {
+      <div class="diario-saved">
+        <button
+          class="diario-date diario-date-button"
+          type="button"
+          [attr.title]="entry.title"
+          [class.diario-tooltip-visible]="tooltipEntry() === entry.id"
+          (click)="openTextPlus(entry.id)"
+          (pointerdown)="startTooltip(entry.id)"
+          (pointerup)="stopTooltip()"
+          (pointerleave)="stopTooltip()"
+          (pointercancel)="stopTooltip()">
+          <span class="diario-entry-title">{{ entry.title }}</span>
+          <span class="diario-entry-date">{{ entry.date }}</span>
+          <span class="diario-tooltip">{{ entry.title }}</span>
+        </button>
+        <button class="diario-action" type="button" title="Editar diario" aria-label="Editar diario" (click)="editEntry(entry.id)">
+          <fa-icon [icon]="faPen"></fa-icon>
+        </button>
+        <button class="diario-action diario-delete" type="button" title="Eliminar diario" aria-label="Eliminar diario" (click)="deleteEntry(entry.id)">
+          <fa-icon [icon]="faTrash"></fa-icon>
+        </button>
+      </div>
+    }
+  </div>
+</section>
+
+@if (activeDate()) {
+  <app-text-plus
+    [(textoContenido)]="textPlusValue"
+    (aceptar)="saveTextPlus()"
+    (cerrar)="activeDate.set(null)"></app-text-plus>
+}

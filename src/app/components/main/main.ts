@@ -5,10 +5,16 @@ import { faBars, faFolderOpen, faDragon, faGlobe } from '@fortawesome/free-solid
 import { Menu } from "../menu/menu";
 import { Reproductor } from "../reproductor/reproductor";
 import { Hoja5Component } from "../hoja5/hoja5";
+import { TareasComponent } from "../tareas/tareas";
+import { DiarioComponent } from "../diario/diario";
+import { SanacionComponent } from "../sanacion/sanacion";
+import { PersonasComponent } from "../personas/personas";
+import { AgendaComponent } from "../agenda/agenda";
+import { HorarioComponent } from "../horario/horario";
 import type { BrowserEntry } from "../../services/file-browser.service";
 
 @Component({
-  imports: [CommonModule, FontAwesomeModule, Menu, Reproductor, Hoja5Component],
+  imports: [CommonModule, FontAwesomeModule, Menu, Reproductor, Hoja5Component, TareasComponent, DiarioComponent, SanacionComponent, PersonasComponent, AgendaComponent, HorarioComponent],
   selector: 'app-main',
   styleUrl: './main.css',
   templateUrl: './main.html',

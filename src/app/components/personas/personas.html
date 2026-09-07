@@ -1,0 +1,48 @@
+<section class="personas-panel" aria-label="Personas">
+  <div class="personas-toolbar">
+    <label class="personas-select-wrap">
+      <select [value]="selectedName()" (change)="selectPerson($event)" aria-label="Seleccionar persona">
+        @for (person of people(); track person.name) {
+          <option [value]="person.name">{{ person.name }}</option>
+        }
+      </select>
+      <fa-icon [icon]="faChevronDown" class="personas-chevron"></fa-icon>
+    </label>
+    <button class="personas-action" type="button" title="Agregar persona" (click)="openForm()"><fa-icon [icon]="faPlus"></fa-icon></button>
+    <button class="personas-action" type="button" title="Editar persona" (click)="editPerson()"><fa-icon [icon]="faPen"></fa-icon></button>
+    <button class="personas-action personas-delete" type="button" title="Eliminar persona" (click)="deletePerson()"><fa-icon [icon]="faTrash"></fa-icon></button>
+  </div>
+
+  @if (isAdding()) {
+    <form class="personas-form" (submit)="$event.preventDefault(); savePerson()">
+      <input [value]="newName()" (input)="newName.set($any($event.target).value)" placeholder="Nombre" aria-label="Nombre" />
+      <textarea [value]="newDescription()" (input)="newDescription.set($any($event.target).value)" placeholder="Descripción" aria-label="Descripción"></textarea>
+      @for (field of fields; track field) {
+        <label class="personas-field">
+          <span>{{ field }}</span>
+          <input [value]="formDetails()[field] ?? ''" (input)="updateDetail(field, $event)" [placeholder]="field" />
+        </label>
+      }
+      <div class="personas-form-actions">
+        <button type="submit">{{ editingName() ? 'Guardar' : 'Agregar' }}</button>
+        <button type="button" (click)="cancelForm()">Cancelar</button>
+      </div>
+    </form>
+  }
+
+  @if (selectedPerson(); as person) {
+    <p class="personas-description">{{ person.description }}</p>
+    <div class="personas-details">
+      @for (field of fields; track field) {
+        @if (person.details[field]) {
+          <div class="personas-detail">
+            <strong>{{ field }}</strong>
+            <span>{{ person.details[field] }}</span>
+          </div>
+        }
+      }
+    </div>
+  } @else {
+    <p class="personas-empty">Agrega una persona para comenzar.</p>
+  }
+</section>

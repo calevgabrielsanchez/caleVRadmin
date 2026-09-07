@@ -1,0 +1,79 @@
+<section class="tareas-panel" aria-label="Tareas">
+  <div class="tareas-toolbar">
+    <label class="tareas-select-wrap">
+      <select [value]="selectedCategory()" (change)="selectCategory($event)">
+        @for (option of selectOptions; track option) {
+          <option [value]="option">{{ option }}</option>
+        }
+      </select>
+      <fa-icon [icon]="faChevronDown" class="tareas-chevron" aria-hidden="true"></fa-icon>
+    </label>
+    <button type="button" class="tareas-edit" (click)="toggleEditing()" [attr.title]="isEditing() ? 'Terminar edición' : 'Editar tabla'">
+      <fa-icon [icon]="isEditing() ? faCheck : faPen"></fa-icon>
+    </button>
+    <button type="button" class="tareas-add" (click)="addItem()" title="Agregar item" aria-label="Agregar item">
+      <fa-icon [icon]="faPlus"></fa-icon>
+    </button>
+  </div>
+
+  @if (isAdding()) {
+    <form class="tareas-add-form" (submit)="$event.preventDefault(); saveNewItem()">
+      <label>
+        Columna
+        <select [value]="addHeaderIndex()" (change)="addHeaderIndex.set(+$any($event.target).value)">
+          @for (row of visibleRows; track row.index; let index = $index) {
+            <option [value]="index">{{ row.header }}</option>
+          }
+        </select>
+      </label>
+      <label>
+        Item
+        <input [value]="newItem()" (input)="newItem.set($any($event.target).value)" placeholder="Nuevo item" />
+      </label>
+      <div class="tareas-add-actions">
+        <button type="submit">Agregar</button>
+        <button type="button" (click)="cancelAddItem()">Cancelar</button>
+      </div>
+    </form>
+  }
+
+  <div class="tareas-table-wrap">
+    <table>
+      <thead>
+        <tr>
+          @for (row of visibleRows; track row.index) {
+            <th>
+              @if (isEditing()) {
+                <input [value]="row.header" (input)="updateRow($event, row.index, 'header')" />
+              } @else {
+                {{ row.header }}
+              }
+            </th>
+          }
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          @for (row of visibleRows; track row.index) {
+            <td>
+              @for (item of itemValues()[row.index] ?? []; track $index) {
+                @if (isEditing()) {
+                  <div class="task-item-edit">
+                    <input [value]="item" (input)="updateItem($event, row.index, $index)" />
+                    <button type="button" title="Eliminar item" (click)="deleteItem(row.index, $index)">×</button>
+                  </div>
+                } @else {
+                  <button class="task-item" type="button" (click)="openTextPlus(row.index, $index)">{{ item }}</button>
+                }
+              }
+            </td>
+          }
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+@if (activeCell() !== null) {
+  <app-text-plus [(textoContenido)]="textPlusValue" (aceptar)="saveTextPlus()" (cerrar)="activeCell.set(null)"></app-text-plus>
+}

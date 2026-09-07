@@ -1,0 +1,20 @@
+:host { display:block; min-width:0; flex:1; }
+.personas-panel { height:100%; padding:12px; box-sizing:border-box; color:var(--text-color,#62c0f4); background:var(--bg-app,#2c2c31); }
+.personas-toolbar { display:flex; align-items:stretch; gap:8px; }
+.personas-select-wrap { position:relative; display:block; flex:1; height:54px; border:2px solid var(--border-color,#00558a); background:var(--bg-header,#37373e); }
+.personas-select-wrap select { width:100%; height:100%; padding:0 42px 0 12px; appearance:none; color:inherit; background:transparent; border:0; font:inherit; font-size:1.05rem; }
+.personas-chevron { position:absolute; top:50%; right:14px; color:var(--fontawesome-color,#cb00b0); font-size:1.7rem; pointer-events:none; transform:translateY(-50%); }
+.personas-action { width:42px; flex:0 0 42px; color:var(--fontawesome-color,#cb00b0); background:var(--bg-header,#37373e); border:2px solid var(--border-color,#00558a); font-size:1rem; cursor:pointer; }
+.personas-action:hover,.personas-action:focus-visible { border-color:var(--text-color,#62c0f4); outline:none; }
+.personas-delete { color:#e5534b; }
+.personas-description,.personas-empty { margin:0; padding:14px; min-height:80px; box-sizing:border-box; color:inherit; background:var(--bg-header,#37373e); border:2px solid var(--border-color,#00558a); border-top:0; white-space:pre-wrap; overflow-wrap:anywhere; }
+.personas-empty { opacity:.75; }
+.personas-details { display:grid; gap:8px; margin-top:10px; }
+.personas-detail { display:grid; gap:4px; padding:10px; color:var(--text-color,#62c0f4); background:var(--bg-header,#37373e); border:1px solid var(--border-color,#00558a); white-space:pre-wrap; overflow-wrap:anywhere; }
+.personas-detail strong { color:var(--fontawesome-color,#cb00b0); font-size:.8rem; }
+.personas-form { display:grid; gap:8px; margin-top:14px; padding:10px; background:var(--bg-header,#37373e); border:2px solid var(--border-color,#00558a); }
+.personas-form input,.personas-form textarea { width:100%; box-sizing:border-box; padding:8px; color:inherit; background:var(--bg-app,#2c2c31); border:1px solid var(--text-color,#62c0f4); font:inherit; }
+.personas-form textarea { min-height:100px; resize:vertical; }
+.personas-field { display:grid; gap:4px; color:var(--text-color,#62c0f4); font-size:.78rem; }
+.personas-form-actions { display:flex; gap:8px; }
+.personas-form button { padding:8px 12px; color:inherit; background:var(--bg-app,#2c2c31); border:1px solid var(--border-color,#00558a); font:inherit; }

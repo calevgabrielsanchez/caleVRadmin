@@ -1,0 +1,21 @@
+:host { display: block; min-width: 0; flex: 1; }
+.sanacion-panel { height: 100%; padding: 12px; box-sizing: border-box; color: var(--text-color, #62c0f4); background: var(--bg-app, #2c2c31); }
+.sanacion-toolbar { display: flex; align-items: stretch; gap: 8px; }
+.sanacion-select-wrap { position: relative; display: block; flex: 1; height: 54px; border: 2px solid var(--border-color, #00558a); background: var(--bg-header, #37373e); }
+.sanacion-select-wrap select { width: 100%; height: 100%; padding: 0 42px 0 12px; appearance: none; -webkit-appearance: none; color: var(--text-color, #62c0f4); background: var(--bg-header, #37373e); border: 0; font: inherit; font-size: 1.05rem; }
+.sanacion-chevron { position: absolute; top: 50%; right: 14px; color: var(--fontawesome-color, #cb00b0); font-size: 1.7rem; pointer-events: none; transform: translateY(-50%); }
+.sanacion-add { width: 54px; flex: 0 0 54px; color: var(--fontawesome-color, #cb00b0); background: var(--bg-header, #37373e); border: 2px solid var(--border-color, #00558a); font-size: 1.25rem; cursor: pointer; }
+.sanacion-add:hover, .sanacion-add:focus-visible { border-color: var(--text-color, #62c0f4); outline: none; }
+.sanacion-action { width: 42px; flex: 0 0 42px; color: var(--fontawesome-color, #cb00b0); background: var(--bg-header, #37373e); border: 2px solid var(--border-color, #00558a); font-size: 1rem; cursor: pointer; }
+.sanacion-action:hover, .sanacion-action:focus-visible { border-color: var(--text-color, #62c0f4); outline: none; }
+.sanacion-delete { color: #e5534b; }
+.sanacion-description, .sanacion-empty { margin: 0; padding: 14px; min-height: 80px; box-sizing: border-box; color: var(--text-color, #62c0f4); background: var(--bg-header, #37373e); border: 2px solid var(--border-color, #00558a); border-top: 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+.sanacion-work-row { display: flex; justify-content: flex-end; padding-top: 10px; }
+.sanacion-work { padding: 8px 16px; color: var(--text-color, #62c0f4); background: var(--bg-header, #37373e); border: 2px solid var(--border-color, #00558a); font: inherit; cursor: pointer; }
+.sanacion-work:hover, .sanacion-work:focus-visible { border-color: var(--selected-color, #44e233); outline: none; }
+.sanacion-empty { opacity: .75; }
+.sanacion-form { display: grid; gap: 8px; margin-top: 14px; padding: 10px; background: var(--bg-header, #37373e); border: 2px solid var(--border-color, #00558a); }
+.sanacion-form input, .sanacion-form textarea { width: 100%; box-sizing: border-box; padding: 8px; color: var(--text-color, #62c0f4); background: var(--bg-app, #2c2c31); border: 1px solid var(--text-color, #62c0f4); font: inherit; }
+.sanacion-form textarea { min-height: 100px; resize: vertical; }
+.sanacion-form-actions { display: flex; gap: 8px; }
+.sanacion-form-actions button { padding: 8px 12px; color: var(--text-color, #62c0f4); background: var(--bg-app, #2c2c31); border: 1px solid var(--border-color, #00558a); font: inherit; }
